@@ -8,7 +8,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "configcat-vue": "github:codedbychavez/configcat-vue",
     "vue": "^3.2.45"
   },
   "devDependencies": {
