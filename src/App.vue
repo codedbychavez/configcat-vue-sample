@@ -1,20 +1,19 @@
 <template>
   <div class="my-app">
-    <!-- <FeatureWrapper featureKey="dialogmessage"> -->
+    <FeatureWrapper featureKey="featurekey">
       <p>
-        I will show if the dialogmessage feature flag is enabled in ConfigCat
+        I will show if the feature flag with <b>featurekey</b> is enabled in ConfigCat
       </p>
-    <!-- </FeatureWrapper> -->
+    </FeatureWrapper>
   </div>
 </template>
 
 <script>
-// import { FeatureWrapper } from 'configcat-vue';
+import { FeatureWrapper } from "configcat-vue";
 
 export default {
   components: {
-    // FeatureWrapper,
-  }
-}
-
+    FeatureWrapper,
+  },
+};
 </script>

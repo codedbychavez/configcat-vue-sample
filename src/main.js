@@ -1,10 +1,12 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-// import configcatVue from 'configcat-vue';
+import { ConfigCatPlugin } from 'configcat-vue';
 
-// App.use(configcatVue, {
-//   apiKey: "ScDaCD8ETUuG7wYo3BdP2A/5s96HBVckk-RzI-iVf-zRA"
-// })
+const app = createApp(App);
 
-createApp(App).mount('#app')
+app.use(ConfigCatPlugin, {
+  apiKey: "ScDaCD8ETUuG7wYo3BdP2A/5s96HBVckk-RzI-iVf-zRA"
+})
+
+app.mount('#app')
