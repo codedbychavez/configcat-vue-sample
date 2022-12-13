@@ -6,21 +6,21 @@ import { ConfigCatPlugin } from 'configcat-vue';
 /*
 If you need to create a logger
 
-install configcat-js (npm package) as shown below
+install and import configcat-js (npm package) as shown below
 
 documentation: https://configcat.com/docs/sdk-reference/js/#logging
 */
 
-import * as configcat from 'configcat-js';
-const logger = configcat.createConsoleLogger(3);
+import * as configcat from 'configcat-js'; // Optional import - for logger
+const logger = configcat.createConsoleLogger(3); // Optional - for logger
 
 const app = createApp(App);
 
 app.use(ConfigCatPlugin, {
-  SDKKey: "ScDaCD8ETUuG7wYo3BdP2A/5s96HBVckk-RzI-iVf-zRA", // SDKKey is required
+  SDKKey: "YOUR-CONFIGCAT-SDK-KEY", // SDKKey is required
   clientOptions: { // clientOptions is optional
     pollIntervalSeconds: 95,
-    logger: logger,
+    logger: logger, // logger is not required and is optional
   }
 });
 
