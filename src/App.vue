@@ -18,7 +18,7 @@ export default {
   },
   data() {
     return {
-      userObject: { // Passing userObject as a prop is optional
+      userObject: { // Passing userObject as a prop to the FeatureWrapper is optional
         identifier: 'john@example.com',
       }
     }
