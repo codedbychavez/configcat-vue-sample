@@ -17,9 +17,8 @@ const logger = configcat.createConsoleLogger(3);
 const app = createApp(App);
 
 app.use(ConfigCatPlugin, {
-  SDKKey: "YOUR-SDK-KEY",
-  // clientOptions is optional
-  clientOptions: {
+  SDKKey: "ScDaCD8ETUuG7wYo3BdP2A/5s96HBVckk-RzI-iVf-zRA", // SDKKey is required
+  clientOptions: { // clientOptions is optional
     pollIntervalSeconds: 95,
     logger: logger,
   }
