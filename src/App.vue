@@ -1,14 +1,18 @@
 <template>
   <div class="my-app">
-    <Welcome />
-    <Instructions />
-    <TheNewFeature />
-    <FeatureWrapper featureKey="dialogmessage" :userObject="userObject">
-      <p>
-        This will show if the feature flag with <b>featurekey</b> is enabled in
-        ConfigCat
-      </p>
-    </FeatureWrapper>
+    <div class="container">
+      <Welcome />
+      <TheNewFeature />
+      <!-- TODO: We should be able to listen to when the feature flag changes 
+      | Some kind of event emitter that we can react to
+      -->
+      <FeatureWrapper featureKey="dialogmessage" :userObject="userObject">
+        <p>
+          This will show if the feature flag with <b>featurekey</b> is enabled in
+          ConfigCat
+        </p>
+      </FeatureWrapper>
+    </div>
   </div>
 </template>
 
@@ -31,6 +35,18 @@ export default {
         identifier: 'john@example.com',
       }
     }
+  },
+  methods: {
+    // TODO: React to changes of the event emitter
   }
 };
 </script>
+
+<style scoped>
+
+.my-app {
+  display: flex;
+  justify-content: center;
+}
+
+</style>

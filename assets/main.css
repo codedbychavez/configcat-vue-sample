@@ -13,11 +13,6 @@ body {
   max-width: 70ch;
 }
 
-section {
-  max-width: 80%;
-  margin: 3rem 2rem;
-}
-
 section:not(:first-child) {
   margin-top: 3rem;
 }

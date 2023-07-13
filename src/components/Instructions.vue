@@ -1,10 +1,9 @@
 <template>
+  <!-- The contents in this file will be move to the documentation -->
   <section class="instructions">
     <div class="text-container">
       <h2>Quick Instructions for using the sample app</h2>
-
       <div>
-        
           <p>
             1. Add your <b>ConfigCat SDK Key</b> to the <b>ConfigCatPlugin</b> in the <b>main.js</b> file.
             <p class="note">You'll need to <a href="https://app.configcat.com/auth/signup" target="_blank">signup for a free ConfigCat account</a> to obtain your SDK Key.</p>

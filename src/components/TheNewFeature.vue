@@ -42,6 +42,7 @@ const handleFormSubmit = () => {
   background-color: whitesmoke;
   padding: 1rem 2rem;
   max-width: 50rem;
+  text-align: center;
 }
 
 .flex-container {
@@ -49,6 +50,7 @@ const handleFormSubmit = () => {
   gap: 1rem;
   align-items: center;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .email-input {
