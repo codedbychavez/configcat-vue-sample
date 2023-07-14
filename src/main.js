@@ -18,11 +18,12 @@ const logger = configcat.createConsoleLogger(3); // Optional - for logger
 const app = createApp(App);
 
 app.use(ConfigCatPlugin, {
-  SDKKey: "YOUR-CONFIGCAT-SDK-KEY", // SDKKey is required
+  SDKKey: "gnLbCJ_nhUCGHl1SZNyC5Q/V794nqFnpkWY_7TuhXTaOw", // SDKKey is required
+  pollingMode: 'auto', // same as "configcat.PollingMode.ManualPoll" Specify the polling mode as a string
   clientOptions: { // clientOptions is optional
-    pollIntervalSeconds: 95,
+    pollIntervalSeconds: 5, // Use the pollIntervalSeconds option parameter to change the polling interval.
     logger: logger, // logger is not required and is optional
-  }
+  },
 });
 
 app.mount('#app');
