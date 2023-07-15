@@ -11,6 +11,9 @@
           This will show if the feature flag with <b>featurekey</b> is enabled in
           ConfigCat
         </p>
+        <template #else>
+          <p>Sorry this feature is not available</p>
+        </template>
       </FeatureWrapper>
     </div>
   </div>
@@ -39,18 +42,15 @@ export default {
   methods: {
     // TODO: React to changes of the event emitter
     handleFlagValueChange(flagValue) {
-      console.log('The flag value has changed ', flagValue);
+      console.log('The feature flag value has changed ', flagValue);
     }
   },
   mounted() {
-    this.configCatClient.on('configChanged', () => {
-      console.log('ok..')
-    })
-    // this.configCatClient.on('flagEvaluated', () => {
-    //   console.log('Flag evaluated')
-    // })
+  //   this.configCatClient.on('NAME-OF-HOOK', () => {
+  //     console.log('Do something...');
+  //   })
   }
-};
+}
 </script>
 
 <style scoped>
