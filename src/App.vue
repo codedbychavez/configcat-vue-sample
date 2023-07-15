@@ -2,16 +2,10 @@
   <div class="my-app">
     <div class="container">
       <Welcome />
-      <TheNewFeature />
-      <!-- TODO: We should be able to listen to when the feature flag changes 
-      | Some kind of event emitter that we can react to
-      -->
       <FeatureWrapper featureKey="myFirstFeatureFlag" @flag-value-changed="handleFlagValueChange">
-        <p>
-          This will show if the feature flag with <b>featurekey</b> is enabled in
-          ConfigCat
-        </p>
+        <TheNewFeature />
         <template #else>
+          <!-- What you want to be displayed when the feature flag is turned off. You can add anything in this block like html elements or other vue components -->
           <p>Sorry this feature is not available</p>
         </template>
       </FeatureWrapper>
@@ -46,9 +40,12 @@ export default {
     }
   },
   mounted() {
+  // If you need to subscribe to events emitted by the ConfigCat client you can do it this way:
   //   this.configCatClient.on('NAME-OF-HOOK', () => {
   //     console.log('Do something...');
   //   })
+
+  // Learn more about hooks here: https://configcat.com/docs/sdk-reference/js/#hooks
   }
 }
 </script>
