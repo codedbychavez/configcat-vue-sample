@@ -15,7 +15,7 @@ const logger = configcat.createConsoleLogger(configcat.LogLevel.Info); // Create
 const app = createApp(App);
 
 app.use(ConfigCatPlugin, {
-  SDKKey: "gnLbCJ_nhUCGHl1SZNyC5Q/V794nqFnpkWY_7TuhXTaOw", // SDKKey is required
+  SDKKey: "YOUR-CONFIGCAT-SDK-KEY", // SDKKey is required
   pollingMode: 'auto', // default is 'auto'. Accepted values: 'auto', 'manual', 'lazy'. Learn more: https://configcat.com/docs/sdk-reference/js/#polling-modes
   clientOptions: { // clientOptions is optional
     pollIntervalSeconds: 5, // Use the pollIntervalSeconds to change the polling interval (how often the ConfigCat SDK should download your feature flags and setting values).
