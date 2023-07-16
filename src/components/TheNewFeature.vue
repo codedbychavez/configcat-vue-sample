@@ -7,7 +7,7 @@
         <form @submit.prevent="handleFormSubmit" class="newsletter-form">
           <div class="flex-container">
             <div class="form-group">
-              <input v-model="state.form.emailAddress" class="email-input" type="email" placeholder="Enter your email" />
+              <input v-model="state.form.emailAddress" class="email-input" type="email" placeholder="Enter your email" required />
             </div>
             <div class="form-submit-button-wrapper">
               <button class="submit-button">Signup</button>

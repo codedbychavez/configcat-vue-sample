@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "configcat-js": "^8.0.2",
-    "configcat-vue": "github:codedbychavez/configcat-vue-beta",
+    "configcat-vue": "^1.2.0",
     "vue": "^3.2.45"
   },
   "devDependencies": {
