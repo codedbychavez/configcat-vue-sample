@@ -18,14 +18,12 @@
 <script>
 import { FeatureWrapper } from "configcat-vue";
 import Welcome from "./components/Welcome.vue";
-import Instructions from "./components/Instructions.vue";
 import TheNewFeature from "./components/TheNewFeature.vue";
 
 export default {
   components: {
     FeatureWrapper,
     Welcome,
-    Instructions,
     TheNewFeature,
   },
   data() {
