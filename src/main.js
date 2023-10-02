@@ -2,13 +2,14 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import '../assets/main.css';
 
-import { ConfigCatPlugin } from "configcat-vue";
+// import { ConfigCatPlugin } from "configcat-vue";
 
 // If you need to use a logger
-// install and import configcat-js (npm package) as shown below
+// Add ConsoleLogger and LogLevel to your import
 
-import * as configcat from 'configcat-js'; // Optional import - Do this if you're using the logger
-const logger = configcat.createConsoleLogger(configcat.LogLevel.Info); // Create a binding for the logger and specify the log level. 
+import { ConfigCatPlugin, createConsoleLogger, LogLevel } from "configcat-vue";
+
+const logger = createConsoleLogger(LogLevel.Info); // Create a binding for the logger and specify the log level. 
 
 // documentation: https://configcat.com/docs/sdk-reference/js/#logging
 
