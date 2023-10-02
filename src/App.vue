@@ -10,6 +10,12 @@
             <p>Sorry this feature is not available. Your feature flag is off.</p>
           </div>
         </template>
+        <template #loading>
+          <!-- What you want to be displayed while the feature flag is loading. You can add anything in this block like html elements or other vue components -->
+          <div class="loading-wrapper">
+            <p>Loading...</p>
+          </div>
+        </template>
       </FeatureWrapper>
     </div>
   </div>
