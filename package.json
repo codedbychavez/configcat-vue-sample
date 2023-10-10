@@ -8,7 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "configcat-vue": "^1.2.0",
+    "configcat-vue": "^1.4.0",
     "vue": "^3.2.45"
   },
   "devDependencies": {
