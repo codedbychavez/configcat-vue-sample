@@ -1,13 +1,46 @@
 <template>
-<div class="my-app">
-  <div class="container">
-    <TheWelcome />
+  <div class="my-app">
+    <div class="container">
+      <TheWelcome />
+      <FeatureWrapper
+        featureKey="myFirstFeatureFlag"
+        :userObject="state.userObject"
+        @flag-value-change="handleFlagValueChange"
+      >
+        <TheNewFeature />
+        <template #else>
+          <!-- What you want to be displayed when the feature flag is turned off. You can add anything in this block like html elements or other vue components -->
+          <div class="feature-not-available-wrapper">
+            <p>Sorry this feature is not available. Your feature flag is off.</p>
+          </div>
+        </template>
+        <template #loading>
+          <!-- What you want to be displayed while the feature flag is loading. You can add anything in this block like html elements or other vue components -->
+          <div class="loading-wrapper">
+            <p>Loading...</p>
+          </div>
+        </template>
+      </FeatureWrapper>
+    </div>
   </div>
-</div>
 </template>
 
 <script setup lang="ts">
-import TheWelcome from './components/TheWelcome.vue';
+import { reactive } from 'vue';
+import TheWelcome from '@/components/TheWelcome.vue';
+
+import { FeatureWrapper } from 'configcat-vue';
+import TheNewFeature from '@/components/TheNewFeature.vue';
+
+const state = reactive({
+  userObject: {
+    identifier: 'john@example.com'
+  }
+})
+
+const handleFlagValueChange = (flagValue: boolean) => {
+  console.log('Flag value changed to: ', flagValue);
+}
 </script>
 
 <style scoped>

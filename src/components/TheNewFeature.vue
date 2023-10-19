@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { reactive } from 'vue';
 
 const state = reactive({
   form: {
@@ -34,7 +34,7 @@ const state = reactive({
 })
 
 const handleFormSubmit = () => {
-  console.log('Submitting the form')
+  console.log('Submitting the form');
 }
 </script>
 
