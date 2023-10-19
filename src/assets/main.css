@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;700&display=swap');
+
+*, html, body {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #e5e7eb;
+  font-family: 'Roboto Flex', sans-serif;
+}
+
+.text-container {
+  max-width: 70ch;
+}
+
+section:not(:first-child) {
+  margin-top: 3rem;
+}
+
+p.note {
+  background-color: #fde047;
+  padding: 2rem 1rem;
+  border-left: 6px solid orange;
+}
