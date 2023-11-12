@@ -1,18 +1,17 @@
 <template>
   <div class="my-app">
     <div class="container">
-      <Welcome />
+      <TheWelcome />
       <FeatureWrapper
         featureKey="myFirstFeatureFlag"
-        @flag-value-changed="handleFlagValueChange"
+        :userObject="state.userObject"
+        @flag-value-change="handleFlagValueChange"
       >
         <TheNewFeature />
         <template #else>
           <!-- What you want to be displayed when the feature flag is turned off. You can add anything in this block like html elements or other vue components -->
           <div class="feature-not-available-wrapper">
-            <p>
-              Sorry this feature is not available. Your feature flag is off.
-            </p>
+            <p>Sorry this feature is not available. Your feature flag is off.</p>
           </div>
         </template>
         <template #loading>
@@ -26,39 +25,22 @@
   </div>
 </template>
 
-<script>
-import { FeatureWrapper } from "configcat-vue";
-import Welcome from "./components/Welcome.vue";
-import TheNewFeature from "./components/TheNewFeature.vue";
+<script setup lang="ts">
+import { reactive } from 'vue';
+import TheWelcome from '@/components/TheWelcome.vue';
 
-export default {
-  components: {
-    FeatureWrapper,
-    Welcome,
-    TheNewFeature,
-  },
-  data() {
-    return {
-      userObject: {
-        // Passing userObject as a prop to the FeatureWrapper is optional
-        identifier: "john@example.com",
-      },
-    };
-  },
-  methods: {
-    // TODO: React to changes of your feature flag value.
-    handleFlagValueChange(flagValue) {
-      console.log("The feature flag value has changed. It is ", flagValue);
-    },
-  },
-  mounted() {
-    // If you need to subscribe to events emitted by the ConfigCat client you can do it this way:
-      this.$configCat.client.on('NAME-OF-HOOK', () => {
-        // console.log('Do something...');
-      })
-    // Learn more about hooks here: https://configcat.com/docs/sdk-reference/js/#hooks
-  },
-};
+import { FeatureWrapper } from 'configcat-vue';
+import TheNewFeature from '@/components/TheNewFeature.vue';
+
+const state = reactive({
+  userObject: {
+    identifier: 'john@example.com'
+  }
+})
+
+const handleFlagValueChange = (flagValue: boolean) => {
+  console.log('Flag value changed to: ', flagValue);
+}
 </script>
 
 <style scoped>
