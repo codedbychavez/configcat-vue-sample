@@ -28,7 +28,19 @@ npm run dev
 
 3. Copy your **SDK Key** from the ConfigCat Dashboard.
 
-4. Open `src/main.js` and replace `YOUR-CONFIGCAT-SDK-KEY` with your actual SDK Key.
+4. Open `src/main.js` and replace `YOUR-CONFIGCAT-SDK-KEY` with your actual SDK Key:
+
+```js
+// ...
+
+app.use(ConfigCatPlugin, {
+    sdkKey: "YOUR-CONFIGCAT-SDK-KEY", // sdkKey is required
+    // ...
+});
+
+// ...
+
+```
 
 5. Open `src/App.vue` and replace `YOUR-FEATURE-KEY` with your actual feature flag key:
 
@@ -46,6 +58,6 @@ featureKey="YOUR-FEATURE-KEY"
 
 ## Documentation
 
-For more information on how to use the ConfigCat SDK, please visit the official documentation:
+For more information on how to use the `configcat-vue` plugin, please visit the official documentation:
 
 <https://configcat-vue.netlify.app/>
