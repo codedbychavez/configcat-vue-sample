@@ -26,16 +26,29 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue';
+import { reactive, inject, onBeforeMount } from 'vue';
 import TheWelcome from '@/components/TheWelcome.vue';
 
 import { FeatureWrapper } from 'configcat-vue';
 import TheNewFeature from '@/components/TheNewFeature.vue';
 
+// Import the ConfigCat SDK client interface
+import type { IConfigCatClient } from 'configcat-vue';
+
+// Inject the underlying ConfigCat SDK client that powers the `configcat-vue` plugin
+const configCatClient = inject<IConfigCatClient>('configCatClient');
+
 const state = reactive({
   userObject: {
     identifier: 'john@example.com'
   }
+})
+
+onBeforeMount(() => {
+  // Subscribe to the hook using the .on method of the ConfigCat SDK client
+  configCatClient?.on('flagEvaluated', () => {
+    console.log('Flag evaluated');
+  })
 })
 
 const handleFlagValueChange = (flagValue: boolean) => {
