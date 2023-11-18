@@ -3,7 +3,7 @@
     <div class="container">
       <TheWelcome />
       <FeatureWrapper
-        featureKey="myFirstFeatureFlag"
+        featureKey="YOUR-FEATURE-KEY"
         :userObject="state.userObject"
         @flag-value-change="handleFlagValueChange"
       >
