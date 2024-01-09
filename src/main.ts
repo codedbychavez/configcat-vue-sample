@@ -12,7 +12,7 @@ import { PollingMode, createConsoleLogger, LogLevel } from 'configcat-vue';
 const app = createApp(App);
 
 app.use(ConfigCatPlugin, {
-    sdkKey: "YOUR-CONFIGCAT-SDK-KEY", // sdkKey is required
+    sdkKey: "gnLbCJ_nhUCGHl1SZNyC5Q/V794nqFnpkWY_7TuhXTaOw", // sdkKey is required
     pollingMode: PollingMode.AutoPoll, // Optional. Default is AutoPoll
     clientOptions: {
         logger: createConsoleLogger(LogLevel.Info), // Optional. Default is LogLevel.None
