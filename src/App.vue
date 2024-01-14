@@ -2,61 +2,68 @@
   <div class="my-app">
     <div class="container">
       <TheWelcome />
-      <FeatureWrapper
-        featureKey="YOUR-FEATURE-FLAG-KEY"
-        :userObject="userObject"
-        @flagValueChanged="handleFlagValueChange"
-      >
+      <div v-if="isFeatureFlagEnabled === true">
         <TheNewFeature />
-        <template #else>
-          <!-- What you want to be displayed when the feature flag is turned off. You can add anything in this block like html elements or other vue components -->
-          <div class="feature-not-available-wrapper">
-            <p>Sorry this feature is not available. Your feature flag is off.</p>
-          </div>
-        </template>
-        <template #loading>
-          <!-- What you want to be displayed while the feature flag is loading. You can add anything in this block like html elements or other vue components -->
-          <div class="loading-wrapper">
-            <p>Loading...</p>
-          </div>
-        </template>
-      </FeatureWrapper>
+      </div>
+      <div v-else-if="isFeatureFlagEnabled === false" class="feature-not-available-wrapper">
+        <p>Sorry this feature is not available. Your feature flag is off.</p>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, inject, onBeforeMount } from 'vue'
+import { ref, inject, onBeforeMount, type Ref } from 'vue'
+import { ClientCacheState, User, type IConfigCatClient } from 'configcat-vue'
 
 import TheWelcome from '@/components/TheWelcome.vue'
-
-import { FeatureWrapper } from 'configcat-vue'
 import TheNewFeature from '@/components/TheNewFeature.vue'
 
-// USING USER OBJECT: Import the User type
-import { User } from 'configcat-vue'
+// Inject the ConfigCat client
+const configCatClient =
+  inject<IConfigCatClient>('configCatClient') ??
+  (() => {
+    throw new Error('ConfigCatPlugin was not installed.')
+  })()
 
-// USING HOOKS: Import the ConfigCat SDK client interface
-import type { IConfigCatClient } from 'configcat-vue'
+const isFeatureFlagEnabled: Ref<undefined | boolean> = ref(false)
 
-// USING HOOKS: Inject the underlying ConfigCat SDK client that powers the `configcat-vue` plugin
-const configCatClient = inject<IConfigCatClient>('configCatClient')
-
-// USING USER OBJECT: Create a ref that will be used as the user object
+// Create the user object
 const user = new User('john@example.com')
 const userObject = ref<User>(user)
 
-onBeforeMount(() => {
-  // USING HOOKS: Subscribe to the hook using the .on method of the ConfigCat SDK client
-  configCatClient?.on('flagEvaluated', () => {
-    console.log('Flag evaluated')
-  })
-})
+const featureFlagKey = 'myFirstFeatureFlag'
 
-// React to flag value changes
-const handleFlagValueChange = (flagValue: boolean) => {
-  console.log('Flag value changed to: ', flagValue)
+const configChangedHandler = () => {
+  const snapshot = configCatClient.snapshot()
+  const featureFlagValue = snapshot.getValue(featureFlagKey, false, userObject.value)
+  if (isFeatureFlagEnabled.value !== featureFlagValue) {
+    isFeatureFlagEnabled.value = featureFlagValue
+  }
 }
+
+onBeforeMount(() => {
+  const snapshot = configCatClient.snapshot()
+  const clientCacheState = snapshot.cacheState
+
+  if (
+    clientCacheState === ClientCacheState.HasCachedFlagDataOnly ||
+    clientCacheState === ClientCacheState.HasLocalOverrideFlagDataOnly
+  ) {
+    isFeatureFlagEnabled.value = snapshot.getValue(featureFlagKey, false, userObject.value)
+    configCatClient.on('configChanged', configChangedHandler)
+  } else {
+    configCatClient.getValueAsync(featureFlagKey, false, userObject.value).then((value) => {
+      const configChangedHandlerResult = configChangedHandler
+
+      if (!configChangedHandlerResult) {
+        return
+      }
+      isFeatureFlagEnabled.value = value
+      configCatClient.on('configChanged', configChangedHandlerResult)
+    })
+  }
+})
 </script>
 
 <style scoped>
