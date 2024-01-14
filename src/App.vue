@@ -14,7 +14,7 @@
 
 <script setup lang="ts">
 import { ref, inject, onBeforeMount, type Ref } from 'vue'
-import { ClientCacheState, User, type IConfigCatClient } from 'configcat-vue'
+import { User, type IConfigCatClient } from 'configcat-vue'
 
 import TheWelcome from '@/components/TheWelcome.vue'
 import TheNewFeature from '@/components/TheNewFeature.vue'
@@ -34,35 +34,16 @@ const userObject = ref<User>(user)
 
 const featureFlagKey = 'myFirstFeatureFlag'
 
-const configChangedHandler = () => {
-  const snapshot = configCatClient.snapshot()
-  const featureFlagValue = snapshot.getValue(featureFlagKey, false, userObject.value)
-  if (isFeatureFlagEnabled.value !== featureFlagValue) {
-    isFeatureFlagEnabled.value = featureFlagValue
+const getAndSetFeatureFlagValue = async () => {
+  const featureFlagValue = configCatClient.getValueAsync(featureFlagKey, false, userObject.value)
+  if (isFeatureFlagEnabled.value !== (await featureFlagValue)) {
+    isFeatureFlagEnabled.value = await featureFlagValue
   }
 }
 
 onBeforeMount(() => {
-  const snapshot = configCatClient.snapshot()
-  const clientCacheState = snapshot.cacheState
-
-  if (
-    clientCacheState === ClientCacheState.HasCachedFlagDataOnly ||
-    clientCacheState === ClientCacheState.HasLocalOverrideFlagDataOnly
-  ) {
-    isFeatureFlagEnabled.value = snapshot.getValue(featureFlagKey, false, userObject.value)
-    configCatClient.on('configChanged', configChangedHandler)
-  } else {
-    configCatClient.getValueAsync(featureFlagKey, false, userObject.value).then((value) => {
-      const configChangedHandlerResult = configChangedHandler
-
-      if (!configChangedHandlerResult) {
-        return
-      }
-      isFeatureFlagEnabled.value = value
-      configCatClient.on('configChanged', configChangedHandlerResult)
-    })
-  }
+  getAndSetFeatureFlagValue()
+  configCatClient.on('configChanged', getAndSetFeatureFlagValue)
 })
 </script>
 
