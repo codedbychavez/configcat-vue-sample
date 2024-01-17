@@ -27,6 +27,7 @@
 
 <script setup lang="ts">
 import { ref, inject, onBeforeMount } from 'vue'
+import { RouterView } from 'vue-router'
 
 import TheWelcome from '@/components/TheWelcome.vue'
 
