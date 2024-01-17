@@ -1,4 +1,4 @@
-# configcat-vue-sample
+# configcat-vue sample app
 
 Sample app for the **configcat-vue** npm package:
 
