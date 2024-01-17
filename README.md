@@ -20,10 +20,4 @@ npm install
 npm run dev
 ```
 
-## Getting started
-
-1. If you haven't already, create a free account at [https://app.configcat.com/signup](https://app.configcat.com/signup).
-
-2. Create a feature flag in your ConfigCat Dashboard.
-
-
+## [Quick Start](https://github.com/codedbychavez/configcat-vue/wiki/quick%E2%80%90start)
