@@ -1,5 +1,12 @@
 <template>
     <div class="home-view">
-        I am the home view
+        <TheWelcome />
     </div>
 </template>
+
+<script setup lang="ts">
+
+import TheWelcome from '@/components/TheWelcome.vue';
+
+
+</script>
