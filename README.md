@@ -20,44 +20,4 @@ npm install
 npm run dev
 ```
 
-## Configure the app
-
-1. If you haven't already, create a free account at [https://app.configcat.com/signup](https://app.configcat.com/signup).
-
-2. Create a feature flag in your ConfigCat Dashboard.
-
-3. Copy your **SDK Key** from the ConfigCat Dashboard.
-
-4. Open `src/main.js` and replace `YOUR-CONFIGCAT-SDK-KEY` with your actual SDK Key:
-
-```js
-// ...
-
-app.use(ConfigCatPlugin, {
-    sdkKey: "YOUR-CONFIGCAT-SDK-KEY", // sdkKey is required
-    // ...
-});
-
-// ...
-
-```
-
-5. Open `src/App.vue` and replace `YOUR-FEATURE-KEY` with your actual feature flag key:
-
-```vue
-<FeatureWrapper
-featureKey="YOUR-FEATURE-KEY"
-:userObject="state.userObject"
-@flag-value-change="handleFlagValueChange"
->
-    <TheNewFeature />
-</FeatureWrapper>
-```
-
-6. Save the file and refresh the app. If you've configured everything correctly, you should see the `<TheNewFeature />` component if the feature is enabled.
-
-## Documentation
-
-For more information on how to use the `configcat-vue` plugin, please visit the official documentation:
-
-<https://configcat-vue.netlify.app/>
+## [Quick Start](https://github.com/codedbychavez/configcat-vue/wiki/quick%E2%80%90start)
