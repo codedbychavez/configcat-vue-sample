@@ -1,24 +1,56 @@
 <template>
   <div class="using-feature-wrapper-view">
-    <FeatureWrapper
-      featureKey="YOUR-FEATURE-FLAG-KEY"
-      :userObject="userObject"
-      @flagValueChanged="handleFlagValueChange"
-    >
-      <TheNewFeature />
-      <template #else>
-        <!-- What you want to be displayed when the feature flag is turned off. You can add anything in this block like html elements or other vue components -->
-        <div class="feature-not-available-wrapper">
-          <p>Sorry this feature is not available. Your feature flag is off.</p>
-        </div>
-      </template>
-      <template #loading>
-        <!-- What you want to be displayed while the feature flag is loading. You can add anything in this block like html elements or other vue components -->
-        <div class="loading-wrapper">
-          <p>Loading...</p>
-        </div>
-      </template>
-    </FeatureWrapper>
+    <p class="description">
+      The <span class="bold">FeatureWrapper</span> component is a pre-made way to simplify feature
+      flag integration in your Vue.js applications. It facilitates dynamic content display based on
+      the state of a feature flag.
+    </p>
+
+    <ol class="description">
+      <li>
+        With your <span class="bold">ConfigCat SDK key</span> added to
+        <pre>src/main.ts</pre>
+        .
+      </li>
+      <li>
+        In
+        <pre>src/views/UsingFeatureWrapperView.vue</pre>
+        , locate the
+        <pre>FeatureWrapper</pre>
+        component.
+      </li>
+      <li>
+        Update the placeholder value of the
+        <pre>featureKey</pre>
+        prop with your actual feature flag key.
+      </li>
+      <li>
+        Once you've updated the key, if the feature flag is turned on, the below feature
+        will be displayed.
+      </li>
+    </ol>
+<!-- EDIT BELOW THIS LINE -->
+    <section class="section">
+      <FeatureWrapper
+        featureKey="YOUR-FEATURE-FLAG-KEY"
+        :userObject="userObject"
+        @flagValueChanged="handleFlagValueChange"
+      >
+        <TheNewFeature />
+        <template #else>
+          <!-- What you want to be displayed when the feature flag is turned off. You can add anything in this block like html elements or other vue components -->
+          <div class="feature-not-available-wrapper">
+            <p>Sorry this feature is not available. Your feature flag is off.</p>
+          </div>
+        </template>
+        <template #loading>
+          <!-- What you want to be displayed while the feature flag is loading. You can add anything in this block like html elements or other vue components -->
+          <div class="loading-wrapper">
+            <p>Loading...</p>
+          </div>
+        </template>
+      </FeatureWrapper>
+    </section>
   </div>
 </template>
 
@@ -59,5 +91,18 @@ const handleFlagValueChange = (featureFlagValue: boolean) => {
   background-color: orange;
   padding: 1rem 2rem;
   border-left: 0.4rem solid orangered;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+pre {
+  display: inline-block;
+  font-weight: 900;
+}
+
+li {
+  margin-top: 1rem;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <header class="">
+  <header>
     <NavigationBar />
   </header>
   <div class="has-padding router-view-wrapper container">

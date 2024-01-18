@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue';
+import { reactive } from 'vue'
 
 const state = reactive({
   form: {
@@ -34,7 +34,7 @@ const state = reactive({
 })
 
 const handleFormSubmit = () => {
-  console.log('Submitting the form');
+  console.log('Submitting the form')
 }
 </script>
 
@@ -42,8 +42,12 @@ const handleFormSubmit = () => {
 .newsletter {
   background-color: whitesmoke;
   padding: 1rem 2rem;
-  max-width: 50rem;
+  width: 100%;
   text-align: center;
+}
+
+.newsletter-form {
+  margin-top: 1rem;
 }
 
 .flex-container {

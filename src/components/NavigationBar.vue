@@ -8,11 +8,11 @@
       </li>
       <li class="navigation-item">
         <RouterLink to="/using-feature-wrapper" active-class="active">
-          Example 1 - Using FeatureWrapper component
+          Example 1 - Using the FeatureWrapper component
         </RouterLink>
       </li>
       <li class="navigation-item">
-        <RouterLink to="/using-configcat-client" active-class="active"> Example 2 - Using ConfigCat client </RouterLink>
+        <RouterLink to="/using-configcat-client" active-class="active"> Example 2 - Using the ConfigCat client </RouterLink>
       </li>
     </ul>
   </div>
@@ -29,6 +29,7 @@
   padding: 0;
   list-style-type: none;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 1rem;
