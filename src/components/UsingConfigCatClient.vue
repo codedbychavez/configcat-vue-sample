@@ -1,6 +1,6 @@
 <template>
   <div class="using-configcat-client">
-    <div class="flags-not-found" v-if="featureFlags === undefined || featureFlags.length === 0">
+    <div class="flags-not-found" v-if="!featureFlags?.length">
       No feature flags found !
     </div>
     <div v-else class="feature-flag-cards-wrapper">
