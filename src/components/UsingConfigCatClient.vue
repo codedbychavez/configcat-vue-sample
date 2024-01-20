@@ -24,15 +24,16 @@
 import { inject, onMounted, ref } from 'vue'
 
 // Import the ConfigCat client interface
-import { SettingKeyValue, type IConfigCatClient, type SettingValue } from 'configcat-vue'
+import type { SettingKeyValue, IConfigCatClient } from 'configcat-vue'
 
 const configCatClient = inject<IConfigCatClient>('configCatClient')
+  ?? (() => { throw new Error("ConfigCatPlugin was not installed."); })()
 
-const featureFlags = ref<SettingKeyValue<SettingValue>[] | undefined>([])
+const featureFlags = ref<SettingKeyValue[] | undefined>([])
 
 onMounted(async () => {
   // Fetch feature flags
-  const response = await configCatClient?.getAllValuesAsync()
+  const response = await configCatClient.getAllValuesAsync()
   featureFlags.value = response
 })
 </script>
