@@ -31,6 +31,7 @@ import type { IConfigCatClient } from 'configcat-vue'
 
 // USING HOOKS: Inject the underlying ConfigCat client
 const configCatClient = inject<IConfigCatClient>('configCatClient')
+  ?? (() => { throw new Error("ConfigCatPlugin was not installed."); })()
 
 // USING USER OBJECT: Create a ref that will be used as the user object
 const user = new User('john@example.com')
