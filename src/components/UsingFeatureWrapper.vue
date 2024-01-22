@@ -41,7 +41,7 @@ import TheNewFeature from '@/components/TheNewFeature.vue'
 
 onBeforeMount(() => {
   // USING HOOKS: Subscribe to the hook using the .on method of the ConfigCat client
-  configCatClient?.on('flagEvaluated', () => {
+  configCatClient.on('flagEvaluated', () => {
     console.log('Flag evaluated')
   })
 })
