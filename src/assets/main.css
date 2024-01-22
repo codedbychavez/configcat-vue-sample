@@ -26,10 +26,6 @@ body {
   max-width: 70ch;
 }
 
-section:not(:first-child) {
-  margin-top: 3rem;
-}
-
 .description {
   font-weight: 300;
   line-height: 1.25rem;
@@ -37,6 +33,23 @@ section:not(:first-child) {
   margin-bottom: 1rem;
   font-size: larger;
   line-height: 1.5rem;
+}
+
+section:not(:first-child) {
+  margin-top: 3rem;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+pre {
+  display: inline-block;
+  font-weight: 900;
+}
+
+li {
+  margin-top: 1rem;
 }
 
 p.note {
