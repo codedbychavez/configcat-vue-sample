@@ -20,4 +20,6 @@ npm install
 npm run dev
 ```
 
-## [Quick Start](https://github.com/codedbychavez/configcat-vue/wiki/quick%E2%80%90start)
+## Documentation
+
+[Read the documentation](https://github.com/codedbychavez/configcat-vue/wiki/Documentation)
