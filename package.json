@@ -13,7 +13,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "configcat-vue": "github:codedbychavez/configcat-vue#august-2024-updates",
+    "configcat-vue": "^2.4.0",
     "vue": "^3.4.38",
     "vue-router": "^4.4.3"
   },
