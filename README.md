@@ -22,4 +22,4 @@ npm run dev
 
 ## Documentation
 
-[Read the documentation](https://github.com/codedbychavez/configcat-vue/wiki/Documentation)
+[Read the documentation](https://configcat.com/docs/sdk-reference/community/vue/)
