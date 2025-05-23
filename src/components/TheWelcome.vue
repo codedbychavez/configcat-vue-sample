@@ -26,7 +26,7 @@
         <b
           >instructions for using the configcat-vue SDK
           <a
-            href="https://github.com/codedbychavez/configcat-vue/wiki/quick%E2%80%90start"
+            href="https://configcat.com/docs/sdk-reference/community/vue/"
             target="_blank"
             >here</a
           ></b
