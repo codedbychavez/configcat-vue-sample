@@ -13,9 +13,9 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "configcat-vue": "^2.4.0",
-    "vue": "^3.4.38",
-    "vue-router": "^4.4.3"
+    "configcat-vue": "^2.5.2",
+    "vue": "^3.5.14",
+    "vue-router": "^4.5.1"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.10.4",
@@ -32,8 +32,8 @@
     "npm-run-all2": "^6.2.2",
     "prettier": "^3.3.3",
     "typescript": "~5.5.4",
-    "vite": "^5.4.2",
-    "vitest": "^2.0.5",
+    "vite": "^6.3.5",
+    "vitest": "^3.1.4",
     "vue-tsc": "^2.0.29"
   }
 }

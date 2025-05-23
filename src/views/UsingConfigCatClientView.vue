@@ -8,7 +8,7 @@
     <p class="description">
       In the example below, the ConfigCat client is used to retrieve all feature flags and their
       corresponding values from your ConfigCat dashboard.
-      See the source code at <pre>src/components/UsingConfigCatClient.vue</pre>
+      See the source code at <code>src/components/UsingConfigCatClient.vue</code>
     </p>
   </div>
   <UsingConfigCatClient />
